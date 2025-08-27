@@ -1,5 +1,7 @@
 import pygame, random, time
 from pygame.locals import *
+from PIL import Image
+
 
 #VARIABLES
 SCREEN_WIDHT = 400
@@ -125,6 +127,10 @@ bird_group.add(bird)
 
 ground_group = pygame.sprite.Group()
 
+frame_count=0
+ss_id= 65
+
+
 for i in range (2):
     ground = Ground(GROUND_WIDHT * i)
     ground_group.add(ground)
@@ -212,6 +218,14 @@ while True:
     ground_group.draw(screen)
 
     pygame.display.update()
+    # f_c= 0
+    if frame_count % 10 == 0:
+        raw_str = pygame.image.tostring(screen, "RGB")
+        img = Image.frombytes("RGB", screen.get_size(), raw_str)
+        img.save(f"screenshots/frame_{ss_id}.png")
+        ss_id += 1
+    frame_count += 1
+    
 
     if (pygame.sprite.groupcollide(bird_group, ground_group, False, False, pygame.sprite.collide_mask) or
             pygame.sprite.groupcollide(bird_group, pipe_group, False, False, pygame.sprite.collide_mask)):
