@@ -128,7 +128,7 @@ bird_group.add(bird)
 ground_group = pygame.sprite.Group()
 
 frame_count=0
-ss_id= 65
+ss_id= 85
 
 
 for i in range (2):
