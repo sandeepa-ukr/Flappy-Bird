@@ -84,7 +84,6 @@ class Pipe(pygame.sprite.Sprite):
     def update(self):
         self.rect[0] -= GAME_SPEED
 
-        
 
 class Ground(pygame.sprite.Sprite):
     
