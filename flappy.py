@@ -59,8 +59,6 @@ class Bird(pygame.sprite.Sprite):
         self.image = self.images[self.current_image]
 
 
-
-
 class Pipe(pygame.sprite.Sprite):
 
     def __init__(self, inverted, xpos, ysize):
